@@ -7,7 +7,7 @@ fs = require('fs');
 app.use(body.urlencoded({ extended: true }))
 
 
-app.get("/", function(req, res){
+app.get("/:phone", function(req, res){
     var request = JSON.stringify(req.body.phone)
 
     var respons = {
