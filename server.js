@@ -42,9 +42,7 @@ app.get("/search/:phone", function (req, res) {
             ]
         }
     }
-    res.status(200).send(respons)
-})
-app.get("/", function (req, res) {
+    res.status(200).json(JSON.parse(respons))
     fs.readFile("results.txt", "utf8", function (err, data) {
         if (err) {
             res.send(err)
