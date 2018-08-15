@@ -6,6 +6,24 @@ fs = require('fs');
 
 app.use(body.urlencoded({ extended: true }))
 
+
+app.get("/", function(req, res){
+    var request = JSON.stringify(req.body.phone)
+
+    var respons = {
+        "type": "text",
+        "text": "simple text with button",
+        "buttons": [
+            {
+                "type": "url",
+                "caption": request,
+                "url": "https://manychat.com"
+            }
+        ]
+    }
+    res.json(JSON.parse(respons))
+})
+
 app.post('/', function (req, res) {
     var request = JSON.stringify(req.body.phone)
     fs.appendFile("results.txt", request, function (err) {
