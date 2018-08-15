@@ -22,7 +22,7 @@ app.post('/', function (req, res) {
             }
         ]
     }
-    res.status(200).send(respons)
+    res.json(JSON.parse(respons))
     // res.send(request)
 })
 
