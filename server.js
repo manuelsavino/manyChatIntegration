@@ -8,7 +8,7 @@ app.use(body.urlencoded({ extended: true }))
 
 
 app.get("/:phone", function(req, res){
-    var request = JSON.stringify(req.body.phone)
+    var request = JSON.stringify(req.params.phone)
 
     var respons = {
         "type": "text",
@@ -21,7 +21,7 @@ app.get("/:phone", function(req, res){
             }
         ]
     }
-    res.json(JSON.parse(respons))
+    res.json(respons)
 })
 
 app.post('/', function (req, res) {
