@@ -28,18 +28,18 @@ app.get("/:phone", function(req, res){
 app.post('/', function (req, res) {
     var request = JSON.stringify(req.body.phone)
     var respons =
-    {
-        "version": "v2",
-        "content": {
-            "messages": [
-                {
-                    "type": "text",
-                    "text": `Here is your link:`
-                }
-            ]
-        }
-    }
-    res.json(respons)
+    
+        res.json({
+            "version": "v2",
+            "content": {
+                "messages": [
+                    {
+                        "type": "text",
+                        "text": `Here is your link:`
+                    }
+                ]
+            }
+        })
     // res.send(request)
 })
 
