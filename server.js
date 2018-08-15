@@ -27,21 +27,19 @@ app.get("/:phone", function(req, res){
 
 app.post('/', function (req, res) {
     var request = JSON.stringify(req.body.phone)
-    fs.appendFile("results.txt", request, function (err) {
-        console.log(err);
-    })
-    var respons = {
-        "type": "text",
-        "text": "simple text with button",
-        "buttons": [
-            {
-                "type": "url",
-                "caption": "External link",
-                "url": "https://manychat.com"
-            }
-        ]
+    var respons =
+    {
+        "version": "v2",
+        "content": {
+            "messages": [
+                {
+                    "type": "text",
+                    "text": `Here is your link:`
+                }
+            ]
+        }
     }
-    res.json(JSON.parse(respons))
+    res.json(respons)
     // res.send(request)
 })
 
