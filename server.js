@@ -7,27 +7,26 @@ fs = require('fs');
 app.use(body.urlencoded({ extended: true }))
 
 
-app.get("/:phone", function(req, res){
-    var request = JSON.stringify(req.params.phone)
-    var link = "https://Google.com"
-    var respons = 
-    {
-        "version": "v2",
-        "content": {
-            "messages": [
-                {
-                    "type": "text",
-                    "text": `Here is your link:`
-                }
-            ]
-        }
-    }
-    res.json(respons)
-})
+// app.get("/:phone", function(req, res){
+//     var request = JSON.stringify(req.params.phone)
+//     var link = "https://Google.com"
+//     var respons = 
+//     {
+//         "version": "v2",
+//         "content": {
+//             "messages": [
+//                 {
+//                     "type": "text",
+//                     "text": `Here is your link:`
+//                 }
+//             ]
+//         }
+//     }
+//     res.json(respons)
+// })
 
 app.post('/', function (req, res) {
     var request = JSON.stringify(req.body.phone)
-    var respons =
     
         res.json({
             "version": "v2",
@@ -35,12 +34,12 @@ app.post('/', function (req, res) {
                 "messages": [
                     {
                         "type": "text",
-                        "text": `Here is your link:`
+                        "text": `Your number is: ${request}`
                     }
                 ]
             }
         })
-    // res.send(request)
+
 })
 
 app.get("/search/:phone", function (req, res) {
