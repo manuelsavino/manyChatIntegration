@@ -9,17 +9,18 @@ app.use(body.urlencoded({ extended: true }))
 
 app.get("/:phone", function(req, res){
     var request = JSON.stringify(req.params.phone)
-
-    var respons = {
-        "type": "text",
-        "text": "simple text with button",
-        "buttons": [
-            {
-                "type": "url",
-                "caption": request,
-                "url": "https://manychat.com"
-            }
-        ]
+    var link = "https://Google.com"
+    var respons = 
+    {
+        "version": "v2",
+        "content": {
+            "messages": [
+                {
+                    "type": "text",
+                    "text": `Here is your link:${link}`
+                }
+            ]
+        }
     }
     res.json(respons)
 })
