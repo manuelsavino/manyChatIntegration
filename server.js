@@ -17,7 +17,7 @@ app.get("/:phone", function(req, res){
             "messages": [
                 {
                     "type": "text",
-                    "text": `Here is your link:${link}`
+                    "text": `Here is your link:`
                 }
             ]
         }
